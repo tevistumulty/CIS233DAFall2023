@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+/*
+   Order Form Style Sheet
+   Filename:         mc_forms.css
+
+*/
+
+form {
+   margin: 0px;
+}
+
+fieldset {
+   width: 350px; 
+   padding: 5px; 
+   margin: 0px 10px 10px 0px; 
+   float: left;
+}
+
+.blockLab input {
+   position: absolute; 
+   left: 150px;
+}
+
+.blockLab span  {
+   position: absolute; 
+   left: 150px;
+}
+
+.blockLab span input {
+   position: relative; 
+   left: 0px; 
+   top: 0px;
+}
+
+.newline {
+   float: left; 
+   clear: left; 
+   display: block; 
+   width: 500px;
+}
+
+/* Validation styles */
+
+input:focus:valid {
+   background: rgb(220, 255, 220) url(go.png) bottom right no-repeat;
+
+   -o-background-size: contain;
+   -moz-background-size: contain;
+   -webkit-background-size: contain;
+   background-size: contain;
+}
+
+input:focus:invalid {
+   background: rgb(255, 232, 233) url(stop.png) bottom right no-repeat;
+
+   -o-background-size: contain;
+   -moz-background-size: contain;
+   -webkit-background-size: contain;
+   background-size: contain;
+}

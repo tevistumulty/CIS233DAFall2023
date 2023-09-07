@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--
+		You will need to modify mc_pc.html, mc_forms.css, and mc_styles.css to complete the 
+		following steps.
+		HTML CHANGES/ADDITIONS:
+		1. In the "contactInfo" fieldset add an additional label and input for storing a 
+		zip code up to 10 characters.
+		Add this regular expression validator: "^\d{5}(\-\d{4})?$"
+		Follow the same naming and formatting pattern as the other inputs.  
+		This field is required for form submission.
+		2. Repeat step 1, but for a 15 character phone number with the validation expression "^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$"
+		This field is also required for form submission.
+		3. In the "computer" fieldset add a drop down list for selecting a hard drive.  Populate it with at least 3 appropriate HD sizes.
+		Following the naming and style standards of the other inputs in this fieldset.
+		4. Also in the "computer" fieldset add a set of Yes/No option buttons for a Media Card Reader.  Follow the existing pattern and 
+		naming convention.
+		5. At the bottom of the form add three buttons:
+			i. A submit button labelled "Send Order"
+			ii. A reset button labelled "Cancel Order"
+			iii. A standard button labelled "Contact Me"
+		CSS CHANGES/ADDITIONS
+		6. In mc_forms.css add a style rule to apply to ALL class="blockLab" components that 
+			i. sets relative position
+			ii. sets the font size to 14px
+			iii. sets the display style to block
+			iv. sets the top and bottom margins to 10px and the left/right margins to 0px
+		7. In mc_forms.css add a style rule to all <select> components that are children of any class="blockLab" component that
+			i. sets absolute position
+			ii. sets the left property to 150px
+			iii. sets the width to 100px
+		8. In mc_forms.css add a style rule for when inputs, selects, or textareas receive the focus.
+			i. set the background color to Red = 220, Green = 255, Blue = 220 (call the appropriate function)
+		9. In mc_styles.css add a style rule to apply to all list items within a <nav> component:
+			i. display should be inline
+			ii. float to the left
+			iii. font size should be 12px
+			iv. right margin should be 5px
+		10. In mc_styles.css add a style rule format anchor tags in the <nav> so that when the mouse hovers over them:
+			i. the font color turns white
+			ii. the background color turns red=0, green=0, and blue=192.
+			
+		Each item above is worth 5 points.
+	-->
+  
+   <meta charset="utf-8" />
+      <meta charset="UTF-8" />
+      <title>Computer Order Form</title>
+      <link href="mc_styles.css" rel="stylesheet" />
+      <link href="mc_forms.css" rel="stylesheet" />
+      <script src="mc_script.js"></script>      
+   </head>
+
+
+   <body>
+      <header>
+         <img src="mc_logo.png" alt="Millennium Computers" />
+      </header>
+
+
+      <nav>
+         <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Desktops</a></li>
+            <li><a href="#">Laptops</a></li>
+            <li><a href="#">Peripherals</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Your Account</a></li>
+            <li><a href="#">Shopping Cart</a></li>
+            <li><a href="#">Contact Us</a></li>
+         </ul>
+      </nav>
+
+
+      <section id="pageContent">
+  
+         <h1>Build Your Computer</h1>
+         <p>* - required information</p>
+   
+         <form id="cForm" name="cForm"
+               action="http://www.mill_computers.com/orders/process.cgi"
+               method="post">
+
+           <fieldset id="contactInfo">
+              <legend>Contact Information</legend>
+
+              <label class="blockLab">
+                 First Name *
+                 <input type="text" name="fName" id="fName" size="20" required />
+              </label>
+              <label class="blockLab">
+                 Last Name *
+                 <input type="text" name="lName" id="lName" size="20" required />
+              </label>
+              <label class="blockLab">
+                 Street *
+                 <input type="text" name="street" id="street" size="20" required />
+              </label>
+              <label class="blockLab">
+                 City *
+                 <input type="text" name="city" id="city" size="15" required />
+              </label>
+              <label class="blockLab">
+                 State *
+                 <input type="text" name="state" id="state" size="5" required />
+              </label>
+			  <!--1-->
+			  <!--2-->
+
+           </fieldset>
+
+           <fieldset id="computer">
+              <legend>Computer Configuration</legend>
+
+              <label class="blockLab">
+                 Processor Speed
+                 <select id="pSpeed" name="pSpeed">
+                    <option>3.2 GHz</option>
+                    <option>4.0 GHz</option>
+                    <option>5.2 GHz</option>
+                 </select>
+              </label>
+              <label class="blockLab">
+                 Memory
+                 <select id="mem" name="mem">
+                    <option>1 GB</option>
+                    <option>2 GB</option>
+                    <option>4 GB</option>
+                    <option>8 GB</option>
+                 </select>
+              </label>
+              <label class="blockLab">
+                 Monitor Size
+                 <select id="monitor" name="monitor">
+                    <option>15"</option>
+                    <option>17"</option>
+                    <option>19"</option>
+                    <option>21"</option>
+                 </select>
+              </label>
+			  <!--3-->
+              <label class="blockLab">
+                 DVD Burner
+                 <span>
+                    <input type="radio" name="dvd" id="dvdyes" />
+                    <label for="dvdyes">Yes</label>
+                    <input type="radio" name="dvd" id="dvdno" />
+                    <label for="dvdno">No</label>
+                 </span>
+              </label>
+              <label class="blockLab">
+                 Tuner Card
+                 <span>
+                    <input type="radio" name="tuner" id="tuneryes" />
+                    <label for="tuneryes">Yes</label>
+                    <input type="radio" name="tuner" id="tunerno" />
+                    <label for="tunerno">No</label>
+                 </span>
+              </label>
+			<!--4-->
+           </fieldset>
+
+           <label class="newline">
+              <input type="checkbox" id="warranty" name="warranty" />
+              Yes, I want the 24-month extended warranty.
+           </label>
+           <label class="newline">
+              <br />Any special requests on your order?<br />
+              <textarea id="comments" name="comments" rows="10" cols="50"></textarea>
+           <label>
+           <br /><br />
+			<!--5-->
+         </form>
+		<!--#echo var="DATE_LOCAL" -->
+		<!--#include virtual="quote.txt" -->
+		<!--#echo var="DOCUMENT_NAME" -->
+		<!--#echo var="REMOTE_ADDR" -->
+         <footer>
+            Millennium Computer &bull;
+            100 Commerce Drive &bull;
+            Madison, WI 53597 &bull;
+            (608) 555 - 8441
+         </footer>
+ 
+      </section>
+
+   </body>
+
+</html>
